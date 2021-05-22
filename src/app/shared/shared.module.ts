@@ -12,8 +12,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { ShellNavigationComponent } from './shell-navigation/shell-navigation.component';
 
-const components = [];
+const components = [ShellNavigationComponent];
 
 const modules = [
   CommonModule,
