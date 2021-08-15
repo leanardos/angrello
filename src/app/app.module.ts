@@ -4,14 +4,15 @@ import { AngularFireAuthModule } from '@angular/fire/auth'; // For managing the 
 import { AngularFirestoreModule } from '@angular/fire/firestore'; // For the backend database
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import "firebase/auth";
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomersComponent } from './customers/customers.component';
 import { HomeComponent } from './home/home.component';
 import { KanbanComponent } from './kanban/kanban.component';
-import { LoginComponent } from './login/login.component';
 import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './user/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase, "angular-auth-firebase"),
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
