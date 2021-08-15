@@ -1,15 +1,15 @@
 <main>
     <div *ngIf="angularFireAuth.authState | async as user; else loggedOut">
-        <button mat-stroked-button (click)="angularFireAuth.signOut()"></button>
+        Logged in as <strong>{{user.email}}</strong>
+        <button mat-stroked-button (click)="angularFireAuth.signOut()">Logout</button>
     </div>
 
     <ng-template #loggedOut>
         <h1>Login</h1>
         
         <button mat-raised-button appGoogleSignin>
-            <img src="/assets/Google-Logo.svg">
+            <img class="logo" src="../../../assets/Google_Logo.svg"/>
             Login with Google
         </button>
     </ng-template>
-    
 </main>

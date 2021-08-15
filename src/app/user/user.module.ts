@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SharedModule } from './../shared/shared.module';
-import { UserRoutingModule } from './user-routing.module';
 import { GoogleSigninDirective } from './google-signin.directive';
-
-
+import { LoginComponent } from './login/login.component';
+import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
-  declarations: [GoogleSigninDirective],
+  declarations: [GoogleSigninDirective, LoginComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

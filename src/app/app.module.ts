@@ -12,13 +12,11 @@ import { CustomersComponent } from './customers/customers.component';
 import { HomeComponent } from './home/home.component';
 import { KanbanComponent } from './kanban/kanban.component';
 import { SharedModule } from './shared/shared.module';
-import { LoginComponent } from './user/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     KanbanComponent,
-    LoginComponent,
     CustomersComponent
   ],
   imports: [
