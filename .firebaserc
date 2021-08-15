@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "deneme-23063": {
+      "hosting": {
+        "angrello": [
+          "deneme-23063"
+        ]
+      }
+    }
+  }
+}
