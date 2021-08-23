@@ -1,5 +1,21 @@
-<mat-card>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+<mat-card class="container">
+
+    <div *ngIf="isSignup">
+        <h3>Create Account</h3>
+        <button mat-stroked-button (click)="changeType('login')">Returning user?</button>
+    </div>
+
+    <div *ngIf="isLogin">
+        <h3>Sign In</h3>
+        <button size="small" mat-stroked-button (click)="changeType('signup')">New user?</button>
+    </div>
+
+    <div *ngIf="isPasswordReset">
+        <h3>Reset Password</h3>
+        <button size="small" mat-button (click)="changeType('login')">Back</button>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
         <mat-form-field [color]="email.valid && 'accent'">
             <input matInput formControlName="email" type="email" placeholder="Email" autocomplete="off"/>
         </mat-form-field>
@@ -17,4 +33,6 @@
 
         <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid || !passwordDoesMatch || loading">Submit</button>
     </form>
+
+    <button *ngIf="isPasswordReset" mat-stroked-button type="submit" [disabled]="loading">Send Reset Email</button>
 </mat-card>

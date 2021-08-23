@@ -12,7 +12,7 @@ export class EmailLoginComponent implements OnInit {
   form: FormGroup;
   
   type: 'login' | 'signup' | 'reset' = 'signup';
-  loading: false;
+  loading = false;
 
   serverMessage: string;
 
@@ -63,6 +63,28 @@ export class EmailLoginComponent implements OnInit {
   }
 
   async onSubmit() {
+    this.loading = true;
 
+    const email = this.email.value;
+    const password = this.password.value;
+
+    try {
+
+      if (this.isLogin) {
+        await this.angularFireAuth.signInWithEmailAndPassword(email, password);
+      }
+      if (this.isSignup) {
+        await this.angularFireAuth.createUserWithEmailAndPassword(email, password);
+      }
+      if (this.isPasswordReset) {
+        await this.angularFireAuth.sendPasswordResetEmail(email);
+        this.serverMessage = 'Check your email';
+      }
+
+    } catch (err) {
+      this.serverMessage = err;
+    }
+
+    this.loading = false;
   }
 }
