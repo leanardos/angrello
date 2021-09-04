@@ -59,4 +59,12 @@ export class BoardService {
       })
     )
   }
+
+  sortBoards(boards: Board[]) {
+    const db = firebase.firestore();
+    const batch = db.batch();
+    const refs = boards.map(b => db.collection('board').doc(b.id));
+    refs.forEach((ref, idx) => batch.update(ref, { priority: idx }));
+    batch.commit;
+  }
 }
