@@ -10,13 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomersComponent } from './customers/customers.component';
 import { HomeComponent } from './home/home.component';
-import { KanbanComponent } from './kanban/kanban.component';
 import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    KanbanComponent,
     CustomersComponent
   ],
   imports: [
