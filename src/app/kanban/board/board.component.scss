@@ -1,0 +1,22 @@
+.inner-card {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.cdk-drag-placeholder {
+    opacity: 0.5;
+}
+
+.cdk-drag-animating {
+    transition: transform 300ms ease;
+}
+
+.cdk-drop-list-dragging .cdk-drag {
+    transition: transform 300ms ease;
+}
+
+.blue { background: rgb(0, 132, 194); color: black }
+.green { background: rgb(94, 194, 0); color: black }
+.yellow { background: rgb(226, 230, 0); color: black }
+.purple { background: rgb(173, 75, 192); }
+.gray { background: rgb(163, 163, 163); text-decoration: line-through; }
