@@ -24,14 +24,14 @@ export class BoardService {
 
   deleteBoard(boardId: string) {
     return this.db
-      .collection('board')
+      .collection('boards')
       .doc(boardId)
       .delete();
   }
 
   updateTask(boardId: string, tasks: Task[]) {
     return this.db
-      .collection('board')
+      .collection('boards')
       .doc(boardId)
       .update({tasks})
   }
