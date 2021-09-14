@@ -1,0 +1,16 @@
+.content {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirm-btn {
+    background: #53bd18;
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #ff5151;
+    color: white;
+}
