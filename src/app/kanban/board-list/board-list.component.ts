@@ -15,7 +15,7 @@ export class BoardListComponent implements OnInit, OnDestroy {
 
   boards: Board[];
   subscription: Subscription
-
+  boardId: string;
   constructor(public boardService: BoardService, public dialog: MatDialog) { }
 
   ngOnInit(): void {

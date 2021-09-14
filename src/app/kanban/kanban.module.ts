@@ -12,6 +12,7 @@ import { BoardComponent } from './board/board.component';
 import { BoardDialogComponent } from './dialogs/board-dialog.component';
 import { KanbanRoutingModule } from './kanban-routing.module';
 import { TaskDialogComponent } from './dialogs/task-dialog.component';
+import { ConfirmationDialogComponent } from './dialogs/confirmation-dialog.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TaskDialogComponent } from './dialogs/task-dialog.component';
     BoardListComponent,
     BoardComponent,
     BoardDialogComponent,
-    TaskDialogComponent
+    TaskDialogComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     CommonModule,

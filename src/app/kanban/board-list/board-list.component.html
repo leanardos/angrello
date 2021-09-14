@@ -1,34 +1,10 @@
-<!-- <div cdkDropListGroup>
-    <div class="board-list-container">
-        <div class="example-box" *ngFor="let board of boards">
-            <mat-card class="board-card">
-                <mat-card-title>{{board.title}}</mat-card-title>
-                <mat-card-subtitle>{{board.id}}</mat-card-subtitle>
-                <div cdkDropList class="board-item-list" (cdkDropListDropped)="drop($event)" [cdkDropListData]="boards">
-                    <div class="board-item-box" cdkDrag>{{board.task.label}}</div>
-                </div>
-                
-                  
-            </mat-card>
-        </div>
-      <div
-        cdkDropList
-        [cdkDropListData]="boards"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        
-      </div>
-    </div>
-  
-</div>-->
-
 <div
   cdkDropList
   cdkDropListOrientation="horizontal"
   class="boards"
   (cdkDropListDropped)="drop($event)">
 
-  <app-board cdkDrag *ngFor="let board of boards" [board]="board" class="board">
+  <app-board cdkDrag *ngFor="let board of boards;" [board]="board" class="board">
     <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
   </app-board>
 

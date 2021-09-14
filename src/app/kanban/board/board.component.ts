@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { BoardService } from '../board.service';
 import { Board } from './../board.model';
+import { ConfirmationDialogComponent } from './../dialogs/confirmation-dialog.component';
 import { TaskDialogComponent } from './../dialogs/task-dialog.component';
 
 @Component({
@@ -13,6 +14,9 @@ import { TaskDialogComponent } from './../dialogs/task-dialog.component';
 export class BoardComponent implements OnInit {
 
   @Input() board: Board;
+
+  currentBoardId: number;
+  currentTask: Task;
   
   constructor(private boardService: BoardService, private dialog: MatDialog) { }
 
@@ -25,6 +29,8 @@ export class BoardComponent implements OnInit {
   }
 
   openDialog(task?: Task, idx?: number): void {
+    this.currentBoardId = idx;
+    this.currentTask = task;
     const newTask = { label: 'purple' };
     const dialogRef = this.dialog.open(TaskDialogComponent, {
       width: '500px',
@@ -46,6 +52,19 @@ export class BoardComponent implements OnInit {
           update.splice(result.idx, 1, result.task);
           this.boardService.updateTask(this.board.id, this.board.tasks);
         }
+      }
+    });
+  }
+
+  deleteBoard(): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '500px',
+      data: {title: `Do you confirm to delete board: ${this.board.title}`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.boardService.deleteBoard(this.board.id);
       }
     });
   }

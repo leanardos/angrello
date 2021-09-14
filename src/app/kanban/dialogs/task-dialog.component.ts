@@ -7,7 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
     <h1 mat-dialog-title>Board</h1>
     <div mat-dialog-content class="content">
       <mat-form-field>
-        <textarea placeholder="Task description" matInput [(ngModel)]="data.task.description"></textarea>
+        <textarea rows="1" placeholder="Task description" matInput [(ngModel)]="data.task.description"></textarea>
       </mat-form-field>
       <br/>
       <mat-button-toggle-group #group="matButtonToggleGroup" [(ngModel)]="data.task.label">
@@ -18,8 +18,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
     </div>
 
     <div mat-dialog-actions>
-      <button mat-button [mat-dialog-close]="data" cdkFocusInitial>{{ data.isNew ? 'Add Task' : 'Update Task'}}</button>
+      <button class="btn-margin-right" mat-button [mat-dialog-close]="data" cdkFocusInitial>{{ data.isNew ? 'Add Task' : 'Update Task'}}</button>
+      <app-delete-button *ngIf="!data.isNew"></app-delete-button>
     </div>
+    
   `,
   styleUrls: ['./task-dialog.component.scss']
 })

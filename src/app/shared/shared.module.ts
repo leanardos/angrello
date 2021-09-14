@@ -12,9 +12,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { DeleteButtonComponent } from './delete-button/delete-button.component';
 import { ShellNavigationComponent } from './shell-navigation/shell-navigation.component';
 
-const components = [ShellNavigationComponent];
+const components = [ShellNavigationComponent, DeleteButtonComponent];
 
 const modules = [
   CommonModule,
