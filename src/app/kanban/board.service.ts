@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import firebase from 'firebase/app';
 import { switchMap } from 'rxjs/operators';
-import { Board, Task } from './board.model';
+import { Board, BoardTask } from './board.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,14 +29,14 @@ export class BoardService {
       .delete();
   }
 
-  updateTask(boardId: string, tasks: Task[]) {
+  updateTask(boardId: string, tasks: BoardTask[]) {
     return this.db
       .collection('boards')
       .doc(boardId)
       .update({tasks})
   }
 
-  removeTask(boardId: string, task: Task) {
+  removeTask(boardId: string, task: BoardTask) {
     return this.db
       .collection('boards')
       .doc(boardId)

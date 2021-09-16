@@ -10,7 +10,7 @@ export class ConfirmationDialogModel {
 @Component({
   selector: 'app-confirmation-dialog',
   template: `
-    <h1 mat-dialog-title>{{ data.title }}</h1>
+    <h2 mat-dialog-title>{{ data.title }}</h2>
     <div mat-dialog-content class="content">
       
       <div mat-dialog-actions>

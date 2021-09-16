@@ -2,10 +2,10 @@ export interface Board {
     id?: string;
     title?: string;
     priority?: number;
-    tasks?: Task[];
+    tasks?: BoardTask[];
 }
 
-export interface Task {
+export interface BoardTask {
     description?: string;
     label?: 'purple' | 'blue' | 'green' | 'yellow' | 'red' | 'gray';
 }

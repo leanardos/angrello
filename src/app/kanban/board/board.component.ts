@@ -2,7 +2,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { BoardService } from '../board.service';
-import { Board } from './../board.model';
+import { Board, BoardTask } from './../board.model';
 import { ConfirmationDialogComponent } from './../dialogs/confirmation-dialog.component';
 import { TaskDialogComponent } from './../dialogs/task-dialog.component';
 
@@ -16,7 +16,7 @@ export class BoardComponent implements OnInit {
   @Input() board: Board;
 
   currentBoardId: number;
-  currentTask: Task;
+  currentTask: BoardTask;
   
   constructor(private boardService: BoardService, private dialog: MatDialog) { }
 
@@ -28,7 +28,7 @@ export class BoardComponent implements OnInit {
     this.boardService.updateTask(this.board.id, this.board.tasks);
   }
 
-  openDialog(task?: Task, idx?: number): void {
+  openDialog(task?: BoardTask, idx?: number): void {
     this.currentBoardId = idx;
     this.currentTask = task;
     const newTask = { label: 'purple' };
@@ -58,8 +58,8 @@ export class BoardComponent implements OnInit {
 
   deleteBoard(): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      width: '500px',
-      data: {title: `Do you confirm to delete board: ${this.board.title}`}
+      width: '400px',
+      data: {title: `Do you confirm to delete board: '${this.board.title}'`}
     });
 
     dialogRef.afterClosed().subscribe(result => {
