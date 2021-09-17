@@ -1,0 +1,15 @@
+<mat-card>
+    <p>Here we can write about the technology used to render this content</p>
+    Paste URL: <pre>https://firestarter.fireship.io/</pre>
+</mat-card>
+
+<mat-card *ngIf="customer | async as cust">
+    <mat-card-header>
+        <mat-card-title>{{ cust.name }}</mat-card-title>
+        <mat-card-subtitle>Customer Details</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="cust.image" />
+    <mat-card-content>
+        <p>{{ cust.bio }}</p>
+    </mat-card-content>
+</mat-card>
