@@ -8,14 +8,12 @@ import "firebase/auth";
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CustomersComponent } from './customers/customers.component';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CustomersComponent
   ],
   imports: [
     BrowserModule,
