@@ -1,6 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+export class BoardDialogModel {
+  data: any;
+  isNew: boolean = true;
+}
+
 @Component({
   selector: 'app-board-dialog',
   template: `
@@ -14,7 +19,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
     <div mat-dialog-actions>
       <button mat-button (click)="onNoClick()">Cancel</button>
-      <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial>Create</button>
+      <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial>{{ data.isNew ? 'Create' : 'Edit' }}</button>
     </div>
   `,
   styles: [

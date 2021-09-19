@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { BoardService } from '../board.service';
 import { Board, BoardTask } from './../board.model';
+import { BoardDialogComponent } from './../dialogs/board-dialog.component';
 import { ConfirmationDialogComponent } from './../dialogs/confirmation-dialog.component';
 import { TaskDialogComponent } from './../dialogs/task-dialog.component';
 
@@ -54,6 +55,20 @@ export class BoardComponent implements OnInit {
         }
       }
     });
+  }
+
+  editBoard(): void {
+    const dialogRef = this.dialog.open(BoardDialogComponent, {
+      width: '500px',
+      data: { title: this.board.title, isNew: false }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != this.board.title) {
+        this.board.title = result;
+        this.boardService.updateBoard(this.board.id, this.board)
+      }
+    })
   }
 
   deleteBoard(): void {
