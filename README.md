@@ -1,6 +1,17 @@
 # Angrello
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
+It is a Kanban project where users can login with Google auth or email and password auth and manage there tasks. 
+
+
+![angrello](https://user-images.githubusercontent.com/81761267/138566433-64fa16b6-0e56-47df-9f45-b8957dde7231.gif)
+
+## Ingredients
+
+Angular
+Angular Material CDK
+Anuglar Universal
+Firebase
+Google Cloud Run
 
 ## Development server
 
